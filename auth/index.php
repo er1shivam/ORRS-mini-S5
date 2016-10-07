@@ -7,5 +7,8 @@
 <body>
 <h2>User Authentication System </h2><hr>
 
+
+
+<?php require_once("resource/Database.php"); ?>
 </body>
 </html>
