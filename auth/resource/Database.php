@@ -1,20 +1,21 @@
 <?php
 
-
-  define("DB_SERVER","localhost");
+  //define("DB_SERVER","localhost");
   define("DB_USER","orrs");
   define("DB_PASS","orrs_login"); 
-  define("DB_NAME","register");
+ // define("DB_NAME","register");
 
 
-  $connection = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+  $dsn = 'mysql:host=localhost; dbname=register';
 
-  if(mysqli_connect_errno()) {
-        die("Database connection failed: " . 
-        mysqli_connect_error() . 
-        "(" . mysqli_connect_errno() . ")"
-        );
-    }
+  try{
+    $db = new PDO($dsn, DB_USER , DB_PASS);
+    
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
+    echo "connected to the register database";
+  }catch(PDOException $ex){
+    echo "connection failed" . $ex->getMessage();
+  }
 
 
   ?>
