@@ -14,7 +14,7 @@
     
     //set pdo error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
-    echo "connected to the register database";
+    // echo "connected to the register database";
   }catch(PDOException $ex){
     echo "connection failed" . $ex->getMessage();
   }
