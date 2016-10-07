@@ -1,27 +1,25 @@
 <?php require_once("resource/Database.php"); //db connection ?>
+<?php require_once("resource/utilities.php"); ?>
 <?php
-
+    $form_errors = array();
     if(isset($_POST['submit'])){
 
-        $form_errors = array(); //error validation
-
         $required_fields = array('email', 'username', 'password');
+        //check empty fields and merge the error msg
+        $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 
-        foreach($required_fields as $fields){
-            if(!isset($_POST[$fields]) || $_POST[$fields] == NULL){
-                $form_errors[] = $fields;
-            }
-        }
+        //check min length
+        $fields_to_check_length = array('username' => 4, 'password' => 6);
+        $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));//fnctncall
+
 
         if (empty($form_errors)) {
-            // if empty process data
+            // if empty, process data
             $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['password'];
             
-        
             $hashed_password = md5($password);
-
             try{
                 $sqlInsert =  "INSERT INTO users (email, username, password, datejoined) ";
                 $sqlInsert .= "VALUES (:email, :username, :password, now())";
@@ -30,25 +28,23 @@
                 $statement->execute(array(':email' => $email, ':username' => $username, ':password' => $hashed_password));
 
                 if($statement -> rowCount() == 1){
-                    $result = "<p ><h1 style='padding: 20px; color: green;'>Registration succesful</h1></p>";
+                    $result = "<p ><h1 style='padding: 20px; border: 1px solid gray; color: green;'>Registration succesful</h1></p>";
                 }
             }catch (PDOException $ex){
-                    $result = "<p style='padding: 20px; color: red;'><h1>Error occured " . $ex->getMessage() . " </h1></p>";
+                    $result = "<p style='padding: 20px; border: 1px solid gray; color: red;'><h1>Error occured " . $ex->getMessage() . " </h1></p>";
             }
     }
     else{
-        $result  = "<p style='color: red;'> There were " . count($form_errors) ;
-        $result .= " errors in the form <br/>"; 
-
-        $result .= "<ul style='color: red;\'>";
-
-        foreach ($form_errors as $error) {
-            $result .= "<li> {$error} " . " can't be blank " ." </li>";
+        if(count($form_errors) == 1){
+             $result  = "<p style='color: red;'> There was " . count($form_errors) ;
+             $result .= " error in the form <br/> </p>";
         }
-
-        $result .= "</ul> </p>";
+        else{
+        $result  = "<p style='color: red;'> There were " . count($form_errors) ;
+        $result .= " errors in the form <br/> </p>";
         }
     }
+}
 
 ?>
 
@@ -65,7 +61,7 @@
         <h2 >Register here</h2><hr>
         <br/>
 <?php if(isset($result)) echo $result; ?>
-
+<?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
     <form action="" method="post">
     <table>
         <tr>

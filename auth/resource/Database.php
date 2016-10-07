@@ -4,8 +4,6 @@
   define("DB_USER","orrs");
   define("DB_PASS","orrs_login"); 
  // define("DB_NAME","register");
-
-
   $dsn = 'mysql:host=localhost; dbname=register';
 
   try{
