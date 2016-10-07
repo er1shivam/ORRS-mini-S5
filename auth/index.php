@@ -1,3 +1,6 @@
+<?php require_once("resource/Database.php"); //db connection ?>
+
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -9,6 +12,6 @@
 
 
 
-<?php require_once("resource/Database.php"); ?>
+
 </body>
 </html>

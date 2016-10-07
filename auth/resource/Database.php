@@ -9,8 +9,10 @@
   $dsn = 'mysql:host=localhost; dbname=register';
 
   try{
+    //create instance of PDO class
     $db = new PDO($dsn, DB_USER , DB_PASS);
     
+    //set pdo error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
     echo "connected to the register database";
   }catch(PDOException $ex){
