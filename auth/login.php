@@ -2,9 +2,9 @@
 <?php require_once("resource/session.php"); ?>
 <?php require_once("resource/utilities.php"); ?>
 <?php
-     $form_errors = array(); // create a array to store the errors
+    
     if(isset($_POST['login'])){
-        
+         $form_errors = array(); // create a array to store the errors
         //validate
         $required_fields = array('username', 'password');
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
@@ -16,11 +16,10 @@
             $statement = $db->prepare($sqlQuery);
             $statement->execute(array(':username' => $user));
 
-            while($row = $statement->fetch()){
+            if($row = $statement->fetch()){
                 $id = $row['id'];
                 $hashed_password = $row['password'];
                 $username = $row['username'];
-
                 if(md5($password) == $hashed_password){ //check if credential is right
                     $_SESSION['id'] = $id;
                     $_SESSION['username'] = $username;
@@ -28,6 +27,9 @@
                 }else{
                     $result = "<p style='padding: 20px; color:red; border: 1px solid gray'>Invalid username or password </p>";
                 }
+            
+            }else{
+                $result = "<p style='color: red;'>Incorrect username </p>";
             }
         }else{
             if(count($form_errors) == 1){
