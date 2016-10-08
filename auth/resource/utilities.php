@@ -37,3 +37,12 @@ function show_errors($form_errors_array){
         return $errors;
 
 }
+
+
+function validate_username($user_cred){
+   global $user_error;
+    if (!ctype_alnum($user_cred)) {
+   $form_errors[] = " username invalid";
+    }
+    return $form_errors;
+}
