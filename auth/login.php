@@ -65,7 +65,8 @@
     <td>Password :</td> 
     <td><input type="password" name="password" placeholder="Enter password"/></td></tr><br/>
     <tr>
-    <td colspan="2" ><input style="float: right;" type="submit" value="Click me to login" name="login" /></td>
+    <td style="padding-top: 20px;"> <a href="forgot_password.php" >Forgot password</td>
+    <td style="padding-top: 20px;"><input style="float: right;" type="submit" value="Click me to login" name="login" /></td>
     </tr>
     </form>
     </div>
