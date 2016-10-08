@@ -11,7 +11,6 @@ function check_empty_fields($required_fields_array){
 
         return $form_errors;
 }
-
 // check min lengths of fields passed
 function check_min_length($fields_to_check_length){
     $form_errors = array();
@@ -23,8 +22,7 @@ function check_min_length($fields_to_check_length){
     }
     return $form_errors;
 }
-
-
+//list and return errors
 function show_errors($form_errors_array){
     $errors = "<p><ul style='color: red;'>";
 
@@ -38,7 +36,6 @@ function show_errors($form_errors_array){
 
 }
 
-
 function validate_username($user_cred){
    global $user_error;
     if (!ctype_alnum($user_cred)) {
@@ -46,3 +43,54 @@ function validate_username($user_cred){
     }
     return $form_errors;
 }
+//error message 
+function flashMessage($message, $status ="fail"){
+    if( $status === "pass"){
+        //success msg
+        $data ="<p><h3 style='padding: 20px; border: 1px solid gray; color: green;'>{$message}</h3></p>";
+    }else{
+        //fail msg
+        $data = "<p><h3 style='padding: 20px; border: 1px solid gray; color: red;'>Error occured {$message}  </h3></p>";
+    }
+    return $data;
+}
+function redirectTo($page){
+    header("Location: {$page}.php");
+}
+// check duplicates
+function checkDuplicateEmails($value,$db){
+        try{
+                $sqlQuery = "SELECT email FROM users WHERE email=:email";
+                $statement = $db->prepare($sqlQuery);
+                $statement->execute(array(':email' => $value));
+
+            if($row = $statement->fetch()){
+                // duplicate entered
+                return true;
+            }
+            return false;
+        }catch(PDOException $ex){
+
+        }
+
+}
+
+function checkDuplicateUsername($value,$db){
+        try{
+                $sqlQuery = "SELECT username FROM users WHERE username=:username";
+                $statement = $db->prepare($sqlQuery);
+                $statement->execute(array(':username' => $value));
+
+            if($row = $statement->fetch()){
+                // duplicate entered
+                return true;
+            }
+            return false;
+        }catch(PDOException $ex){
+
+        }
+
+}
+
+
+?>

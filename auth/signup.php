@@ -12,12 +12,18 @@
         $fields_to_check_length = array('username' => 4, 'password' => 6);
         $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));//fnctncall
 
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-        if (empty($form_errors)) {
+        if(checkDuplicateEmails($email, $db)){
+            $result = flashMessage("Email is already registered");
+        }    
+        else if(checkDuplicateUsername($username, $db)){
+            $result = flashMessage("Username is already taken");
+        }
+        else if(empty($form_errors)) {
             // if empty, process data
-            $email = $_POST['email'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
             
             $hashed_password = md5($password);
             try{
@@ -28,20 +34,18 @@
                 $statement->execute(array(':email' => $email, ':username' => $username, ':password' => $hashed_password));
 
                 if($statement -> rowCount() == 1){
-                    $result = "<p ><h1 style='padding: 20px; border: 1px solid gray; color: green;'>Registration succesful</h1></p>";
+                    $result = flashMessage("Registration succesful" ,"pass");
                 }
             }catch (PDOException $ex){
-                    $result = "<p style='padding: 20px; border: 1px solid gray; color: red;'><h1>Error occured " . $ex->getMessage() . " </h1></p>";
+                    $result = flashMessage("Error occured : " . $ex->getMessage() );
             }
     }
     else{
         if(count($form_errors) == 1){
-             $result  = "<p style='color: red;'> There was " . count($form_errors) ;
-             $result .= " error in the form <br/> </p>";
+             $result  = flashMessage("There was one error in the form <br/>");
         }
         else{
-        $result  = "<p style='color: red;'> There were " . count($form_errors) ;
-        $result .= " errors in the form <br/> </p>";
+        $result  = flashMessage("There was" . count($form_errors). " in the form <br />");
         }
     }
 }

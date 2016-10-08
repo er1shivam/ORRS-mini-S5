@@ -23,19 +23,19 @@
                 if(md5($password) == $hashed_password){ //check if credential is right
                     $_SESSION['id'] = $id;
                     $_SESSION['username'] = $username;
-                    header("Location: index.php");
+                    redirectTo('index');
                 }else{
-                    $result = "<p style='padding: 20px; color:red; border: 1px solid gray'>Invalid username or password </p>";
+                    $result = flashMessage("Invalid username or password <br />");
                 }
             
             }else{
-                $result = "<p style='color: red;'>Incorrect username </p>";
+                $result = flashMessage("Incorrect username");
             }
         }else{
             if(count($form_errors) == 1){
-                $result = "<p style='color: red;'>There was 1 error in the form </p>";
+                $result = flashMessage("There was 1 error in the form <br />");
             }else{
-                $result = "<p style='color: red;'>There were " . count($form_errors) . "errors in the form </p>";
+                $result = flashMessage("There were ".count($form_errors)." errors in the form <br />");
             }
         }
 
