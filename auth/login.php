@@ -1,6 +1,7 @@
 <?php require_once("resource/Database.php"); //db connection ?>
-<?php require_once("resource/session.php"); ?>
 <?php require_once("resource/utilities.php"); ?>
+<?php $page_title = "ORRS"; ?>
+<?php require_once("patches/header.php"); ?>
 <?php
     
     if(isset($_POST['login'])){
@@ -43,14 +44,6 @@
     }
 
 ?>
-
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Login Page</title>
-</head>
-<body>
 <div class="container">
    <div class="row">
     <div class="col-md-6">
@@ -60,19 +53,22 @@
         <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
     <form action="" method="post" >
     <table>
-    <tr>
-    <td>Username :</td>
-    <td><input type="text" name="username" placeholder="Enter your username"/><td/></tr><br/>
-    <tr>
-    <td>Password :</td> 
-    <td><input type="password" name="password" placeholder="Enter password"/></td></tr><br/>
-    <tr>
-    <td style="padding-top: 20px;"> <a href="forgot_password.php" >Forgot password</td>
-    <td style="padding-top: 20px;"><input style="float: right;" type="submit" value="Click me to login" name="login" /></td>
-    </tr>
+        <tr>
+        <td>Username :</td>
+        <td><input type="text" name="username" placeholder="Enter your username"/><td/>
+        </tr><br/>
+        <tr>
+        <td>Password :</td> 
+        <td><input type="password" name="password" placeholder="Enter password"/></td>
+        </tr><br/>
+        <tr>
+        <td style="padding-top: 20px;"> <a href="forgot_password.php" >Forgot password</td>
+        <td style="padding-top: 20px;"><input style="float: right;" type="submit" value="Click me to login" name="login" /></td>
+        </tr>
+    </table>
     </form>
-    </div>
-    </div>
+  </div>
+ </div>
 </div>
-</body>
-</html>
+
+<?php require_once("patches/footer.php"); ?>
