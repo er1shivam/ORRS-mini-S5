@@ -78,7 +78,7 @@ if(isset($_POST['reset_btn'])){ //if reset
 <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 <form method="post" action="">
     <table>
-        <tr><td>Email:</td> <td><input type="text" value="" name="email"></td></tr>
+        <tr><td>Email:</td> <td><input type="email" value="" name="email"></td></tr>
         <tr><td>New Password:</td> <td><input type="password" value="" name="new_password"></td></tr>
         <tr><td>Confirm Password:</td> <td><input type="password" value="" name="confirm_password"></td></tr>
         <tr><td></td><td><input style="float: right;" type="submit" name="reset_btn" value="Reset Password"></td></tr>
