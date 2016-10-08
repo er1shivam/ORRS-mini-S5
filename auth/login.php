@@ -1,6 +1,8 @@
-<?php require_once("resource/Database.php"); //db connection ?>
+<?php
+ob_start();
+require_once("resource/Database.php"); //db connection ?>
 <?php require_once("resource/utilities.php"); ?>
-<?php $page_title = "ORRS"; ?>
+<?php $page_title = "Login page"; ?>
 <?php require_once("patches/header.php"); ?>
 <?php
     
@@ -47,28 +49,35 @@
 <div class="container">
    <div class="row">
     <div class="col-md-6">
-        <h2 >Login</h2><hr>
+        <h2 >Login Form</h2><hr>
         <br/>
         <?php if(isset($result)) echo $result; ?>
         <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-    <form action="" method="post" >
-    <table>
-        <tr>
-        <td>Username :</td>
-        <td><input type="text" name="username" placeholder="Enter your username"/><td/>
-        </tr><br/>
-        <tr>
-        <td>Password :</td> 
-        <td><input type="password" name="password" placeholder="Enter password"/></td>
-        </tr><br/>
-        <tr>
-        <td style="padding-top: 20px;"> <a href="forgot_password.php" >Forgot password</td>
-        <td style="padding-top: 20px;"><input style="float: right;" type="submit" value="Click me to login" name="login" /></td>
-        </tr>
-    </table>
-    </form>
+
+
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="username1">Username</label>
+                <input type="text" class="form-control" name="username" id="exampleInputEmail1" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="Password1">Password</label>
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+            </div>
+           
+            <div class="checkbox">
+                <label>
+                <input type="checkbox"> Remember me
+                </label>
+            </div>
+             <a href="forgot_password.php" >Forgot password</a>
+            <button type="submit" name="login" class="btn btn-primary pull-right">Submit</button>
+        </form>
+
+
   </div>
  </div>
 </div>
 
-<?php require_once("patches/footer.php"); ?>
+<?php require_once("patches/footer.php");
+ob_end_flush(); ?>

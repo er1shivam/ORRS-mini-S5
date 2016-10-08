@@ -1,5 +1,4 @@
 <?php
-
   //define("DB_SERVER","localhost");
   define("DB_USER","orrs");
   define("DB_PASS","orrs_login"); 
