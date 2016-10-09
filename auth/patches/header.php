@@ -9,6 +9,8 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <script src="js/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
