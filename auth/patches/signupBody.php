@@ -34,7 +34,16 @@
                 $statement->execute(array(':email' => $email, ':username' => $username, ':password' => $hashed_password));
 
                 if($statement -> rowCount() == 1){
-                    $result = flashMessage("Registration succesful" ,"pass");
+                    $result = "<script type=\"text/javascript\"> 
+                    swal({   
+                         title: \"Congrats $username !\", 
+                        type:'success',  
+                        text: \"Registration successful.\",
+                        confirmButtonText: \"Thank you!\",    
+                        
+                        });
+                        </script>";
+                //$result = flashMessage("Registration succesful" ,"pass");
                 }
             }catch (PDOException $ex){
                     $result = flashMessage("Error occured : " . $ex->getMessage() );

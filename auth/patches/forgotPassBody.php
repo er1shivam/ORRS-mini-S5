@@ -42,11 +42,28 @@ if(isset($_POST['reset_btn'])){ //if reset
                     $statement = $db->prepare($sqlUpdate);
                     //execute the statement
                     $statement->execute(array(':password' => $hashed_password, ':email' => $email));
-                    $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Password Reset Successful</p>";
+                    $result = "<script type=\"text/javascript\"> 
+                    swal({   
+                         title: \"Updated!\", 
+                        type:'success',  
+                        text: \"Password Reset Successful\",
+                        confirmButtonText: \"Thank you!\",    
+                        
+                        });
+                        </script>";
+
+                  //$result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Password Reset Successful</p>";
                 }
                 else{
-                    $result = flashMessage("The email address provided
-                                does not exist,please try with a  different email again or signup");
+                    $result = "<script type=\"text/javascript\"> 
+                    swal({   
+                         title: \"OOPS!\", 
+                        type:'error',  
+                        text: \"Email doesn't exist. Please try with a different email.\",
+                        confirmButtonText: \"Ok!\",    
+                        
+                        });
+                        </script>";
                 }
             }catch (PDOException $ex){
                 $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> An error occurred: ". $ex->getMessage() . "</p>";

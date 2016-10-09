@@ -25,7 +25,20 @@ require_once("resource/Database.php"); //db connection ?>
                 if(md5($password) == $hashed_password){ //check if credential is right
                     $_SESSION['id'] = $id;
                     $_SESSION['username'] = $username;
-                    redirectTo('index');
+
+                    echo $welcome = "<script type=\"text/javascript\"> swal({   
+                        title: \"Welcome back $username !\", 
+                        type:'success',  
+                        text: \"You're being logged in.\",   
+                        timer: 2000,   
+                        showConfirmButton: false 
+                        });
+                        setTimeout(function(){
+                            window.location.href = 'index.php'; 
+                            }, 2000); 
+
+                        </script>";
+                   // redirectTo('index');
                 }else{
                     $result = flashMessage("Invalid username or password <br />");
                 }
