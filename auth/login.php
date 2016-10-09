@@ -51,9 +51,12 @@ require_once("resource/Database.php"); //db connection ?>
     <div class="col-md-6">
         <h2 >Login Form</h2><hr>
         <br/>
+        <div>
         <?php if(isset($result)) echo $result; ?>
         <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 
+        </div>
+        
 
         <form action="" method="post">
             <div class="form-group">
