@@ -26,7 +26,7 @@
            
             <div class="checkbox">
                 <label>
-                <input type="checkbox"> Remember me
+                <input name="remember" value="yes" type="checkbox"> Remember me
                 </label>
             </div>
              <a href="forgot_password.php" >Forgot password</a>

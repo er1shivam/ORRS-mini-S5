@@ -28,6 +28,4 @@
     </div>
     </div>
 </div>
-
-
 <?php require_once("patches/footer.php"); ?>
