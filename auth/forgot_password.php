@@ -26,7 +26,7 @@ if(isset($_POST['reset_btn'])){ //if reset
         $password2 = $_POST['confirm_password'];
         //confirm  both password 
         if($password1 != $password2){
-            $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> New password and confirm password does not match</p>";
+            $result = flashMessage("New password and confirm password does not match");
         }else{
             try{
                 //verify if email exist in the database
@@ -47,8 +47,8 @@ if(isset($_POST['reset_btn'])){ //if reset
                     $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Password Reset Successful</p>";
                 }
                 else{
-                    $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> The email address provided
-                                does not exist,please try with a  different email again or signup</p>";
+                    $result = flashMessage("The email address provided
+                                does not exist,please try with a  different email again or signup");
                 }
             }catch (PDOException $ex){
                 $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> An error occurred: ". $ex->getMessage() . "</p>";
@@ -57,9 +57,9 @@ if(isset($_POST['reset_btn'])){ //if reset
     }
     else{
         if(count($form_errors) == 1){
-            $result = "<p style='color: red;'> There was 1 error in the form<br>";
+            $result = flashMessage("There was 1 error in the form<br>");
         }else{
-            $result = "<p style='color: red;'> There were " .count($form_errors). " errors in the form <br>";
+            $result = flashMessage("There were " .count($form_errors). " errors in the form <br>");
         }
     }
 }
@@ -69,8 +69,10 @@ if(isset($_POST['reset_btn'])){ //if reset
     <div class="col-md-6">
         <h2 >Reset password here</h2><hr>
         <br/>
+       <div>
         <?php if(isset($result)) echo $result; ?>
         <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+        </div>
             <form action="" method="post">
             <div class="form-group">
                 <label for="email1">Email</label>
