@@ -8,7 +8,7 @@
     <title>Homepage</title>
 </head>
 <body>
-<h2>User Authentication System </h2><hr>
+<h2>O R R S</h2><hr>
 
 <?php if(!isset($_SESSION['username'])): ?>
 <p> You are currently not sign in <a href="login.php">Login</a>Not yet a member?
