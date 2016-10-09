@@ -47,7 +47,7 @@
              $result  = flashMessage("There was one error in the form <br/>");
         }
         else{
-        $result  = flashMessage("There was" . count($form_errors). " in the form <br />");
+        $result  = flashMessage("There were " . count($form_errors). " errors in the form <br />");
         }
     }
 }
