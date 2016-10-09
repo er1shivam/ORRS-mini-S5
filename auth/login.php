@@ -83,4 +83,5 @@ require_once("resource/Database.php"); //db connection ?>
 </div>
 
 <?php require_once("patches/footer.php");
-ob_end_flush(); ?>
+ ob_end_flush();
+ ?>

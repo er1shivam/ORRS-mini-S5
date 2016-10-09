@@ -24,7 +24,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <?php if(isset($_SESSION['username'])): ?>
               <li><a href="#">My Profile</a></li>
               <li><a href="#">Logout </a></li>
