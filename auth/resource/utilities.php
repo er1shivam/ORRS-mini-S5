@@ -47,10 +47,10 @@ function validate_username($user_cred){
 function flashMessage($message, $status ="fail"){
     if( $status === "pass"){
         //success msg
-        $data ="<p><h3 style='padding: 20px; border: 1px solid gray; color: green;'>{$message}</h3></p>";
+        $data ="<div class=\"alert alert-success \">{$message}";
     }else{
         //fail msg
-        $data = "<p><h3 style='padding: 20px; border: 1px solid gray; color: red;'>Error occured {$message}  </h3></p>";
+        $data = "<div class=\"alert alert-danger \">{$message}";
     }
     return $data;
 }
