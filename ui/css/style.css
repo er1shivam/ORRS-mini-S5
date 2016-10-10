@@ -62,7 +62,7 @@ li a:hover {
 }
 
 img{
-    image-orientation: 
+    image-orientation: inherit;
     
 }
 
@@ -91,11 +91,11 @@ img{
 }
 .ph-btn-green {
 
-    border-color: #3AC162;
-	  background-color: #5FCF80;
-    margin: 20px;
-   margin-left: 40px;
-
+        border-color: #3AC162;
+	    background-color: #5FCF80;
+        margin: 10px;
+        margin-bottom: 0px;
+         min-width: 165px;
 }
 .ph-btn-green:hover, .ph-btn-green:focus, .ph-btn-green:active {
     background-color: #4BC970;
@@ -107,17 +107,29 @@ img{
 
     border-color: #326E99;
     background-color: #3F8ABF;
-    margin: 20px;
-    margin-bottom: 5px;
-    min-width: 180px;
-    margin-top: 30px;
-    margin-left: 40px;
-}
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+     min-width: 165px;
+    }
 
 .ph-btn-blue:hover, .ph-btn-blue:focus, .ph-btn-blue:active {
     background-color: #397CAC;
     border-color: #326E99;   
 }
+.ph-btn-red {
+
+    border-color: #fa2104;
+    background-color: #ee1623;
+    margin: 10px;
+    min-width: 165px;
+}
+.ph-btn-red:hover, .ph-btn-red:focus, .ph-btn-red:active {
+    background-color: #f00;
+    border-color: #ce1a10;  
+
+}
 .bgl{
   background-image: url("../../image/blurbg.jpg");
+  max-width: 225px;
 }
