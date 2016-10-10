@@ -39,14 +39,16 @@
              <h3> Enter the station to get the list of trains between stations </h3>
             <br />
              <form >
-             <fieldset>
+             <fieldset class="form-group">
                  <legend>Trains between stations</legend>
-            <span>Source Station :</span><input type="text" name="src_station"/>
+            <pre>
+            Source Station  :    <input type="text" class="form-control" name="src_station"/>
             <br />
-            Destination station:<input type="text" name="dest_station"/><br />
-            <br />
-                 
-            <input type="submit" name="get_trains" value="Get Trains" />
+            Destination station: <input type="text" class="form-control" name="dest_station"/>
+            </pre>    
+            <center>
+            <button type="submit" name="get_trains">Get Trains</button>
+            </center>
                  
             </fieldset>
                  
