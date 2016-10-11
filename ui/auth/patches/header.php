@@ -1,4 +1,5 @@
 <?php require_once("resource/session.php"); //db connection ?>
+<?php require_once("resource/utilities.php"); //db connection ?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -25,7 +26,7 @@
           <a class="navbar-brand" href="../../ui/index.html">ORRS</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav"><i class="hide"><?php echo guard(); ?></i>
             <li><a href="index.php">Home</a></li>
             <?php if(isset($_SESSION['username'])): ?>
               <li><a href="#">My Profile</a></li>

@@ -92,5 +92,35 @@ function checkDuplicateUsername($value,$db){
 
 }
 
+function signout(){
+    unset($_SESSION['username']);
+    unset($_SESSION['id']);
+
+
+   // if(isset($_COOKIE[]))    
+    session_destroy();
+}
+
+function guard(){
+
+    $isValid = true;
+    $inactive = 10 * 1;
+    $fingerprint = md5( $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+
+    if((isset($_SESSION['fingerprint']) && $_SESSION['fingerprint'] != $fingerprint)){
+        $isValid = false;
+        signout();
+    }else if((isset($_SESSION['last_active']) && (time() - $_SESSION['last_active']) > $inactive) && $_SESSION['username']){
+        $isValid = false;
+        signout();
+    }else{
+        $_SESSION['last_active'] = time();
+    }
+    return $isValid;
+
+}
+
+
+
 
 ?>
