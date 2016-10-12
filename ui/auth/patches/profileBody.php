@@ -24,13 +24,13 @@ if((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['u
     
     $user_pic = "uploads/".$username.".jpg";
     $default = "uploads/default.jpg";
-
+    // to set profile pic called in profile.php
     if(file_exists($user_pic)){
         $profile_pic = $user_pic;
     }else{
         $profile_pic = $default;
     }
-    
+
     $encode_id = base64_encode("encodeuserid{$id}");
 }else if(isset($_POST['updateProfileBtn'])){
     //array to store errors
@@ -42,11 +42,17 @@ if((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['u
 
     $fields_to_check_length = array('username' => 4);
     $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
+    
+    isset($_FILES['avatar']['name']) ? $avatar = $_FILES['avatar']['name'] : $avatar = null;
+    if($avatar !=null){
+        $form_errors = array_merge($form_errors, isValidImage($avatar));
+    }
     //collect data
+
     $email = $_POST['email'];
     $username = $_POST['username'];
     $hidden_id = $_POST['hidden_id'];
-
+    
     if(empty($form_errors)){
         try{
             //update user profile details
