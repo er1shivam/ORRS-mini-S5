@@ -30,7 +30,7 @@
             <li><a href="index.php">Home</a></li>
             <?php if(isset($_SESSION['username'])): ?>
               <li><a href="profile.php">My Profile</a></li>
-              <li><a href="#">Logout </a></li>
+              <li><a href="logout.php">Logout </a></li>
               <?php else: ?>
               <li><a href="login.php">Login </a>
               <li><a href="signup.php">Sign up</a>

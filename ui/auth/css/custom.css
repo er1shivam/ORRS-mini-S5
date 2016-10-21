@@ -8,3 +8,12 @@ body{
     text-align: center;
 
 }
+
+
+.btn-custm{
+    min-width: 400px;
+}
+
+#red_font{
+    color: #f33;
+}
