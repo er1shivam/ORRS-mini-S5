@@ -2,6 +2,10 @@
 ob_start();
 require_once("resource/Database.php"); //db connection ?>
 <?php require_once("resource/utilities.php"); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 <?php $page_title = "ORRS"; ?>
 <?php require_once("patches/header.php"); ?>
 <?php require_once("patches/addtrainlogic.php"); ?>
