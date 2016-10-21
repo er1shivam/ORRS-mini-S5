@@ -38,6 +38,10 @@
                       <td> <a href="add_station.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Add Station</a> </td>
                       <td> <a href="delete_station.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Delete Station</a> </td>
                   </tr>
+                  <tr>
+                      <td> <a href="add_schedule.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Add Schedule</a> </td>
+                      <td> <a href="delete_schedule.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Delete Schedule</a> </td>
+                  </tr>
                   <br/>
               </table>
            </p>
