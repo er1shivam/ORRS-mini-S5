@@ -104,7 +104,7 @@ function signout(){
 function guard(){
 
     $isValid = true;
-    $inactive = 60 * 5;
+    $inactive = 60 * 15;
     $fingerprint = md5( $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
 
     if((isset($_SESSION['fingerprint']) && $_SESSION['fingerprint'] != $fingerprint)){
@@ -160,6 +160,24 @@ function getstationname($db){
 return $nm;
 }
 
+function gettrainname($db){
+    $st_nm = "SELECT train_name FROM trains_info"; //check if user exist in database
+    $statement = $db->prepare($st_nm);
+    $statement->execute();
+    while($row = $statement->fetch()){
+        $nm[] = $row['train_name'];
+    }
+return $nm;
+}
+function gettrainno($db){
+    $st_nm = "SELECT train_no FROM trains_info"; //check if user exist in database
+    $statement = $db->prepare($st_nm);
+    $statement->execute();
+    while($row = $statement->fetch()){
+        $nm[] = $row['train_no'];
+    }
+return $nm;
+}
 
 
 
