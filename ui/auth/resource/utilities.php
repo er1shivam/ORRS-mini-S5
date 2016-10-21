@@ -141,6 +141,24 @@ function isValidImage($file){
 
 }
 
+function getstationid($db){
+    $st_id = "SELECT station_id FROM train_route"; //check if user exist in database
+    $statement = $db->prepare($st_id);
+    $statement->execute();
+    while($row = $statement->fetch()){
+    $id[] = $row['station_id'];
+}
+return $id;
+}
+function getstationname($db){
+    $st_nm = "SELECT station_name FROM train_route"; //check if user exist in database
+    $statement = $db->prepare($st_nm);
+    $statement->execute();
+    while($row = $statement->fetch()){
+        $nm[] = $row['station_name'];
+    }
+return $nm;
+}
 
 
 

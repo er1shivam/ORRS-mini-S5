@@ -31,8 +31,12 @@
           <p>
               <table class="table">
                   <tr>
-                      <td> <a href="train_search.html" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Add Train</a> </td>
-                      <td> <a href="book_ticket.html" class="btn btn-primary btn-lg active btn-custm" role="button"> Delete Train</a> </td>
+                      <td> <a href="add_train.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Add Train</a> </td>
+                      <td> <a href="delete_train.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Delete Train</a> </td>
+                  </tr>
+                  <tr>
+                      <td> <a href="add_station.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Add Station</a> </td>
+                      <td> <a href="delete_station.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Delete Station</a> </td>
                   </tr>
                   <br/>
               </table>
@@ -47,13 +51,13 @@
             <p>
                 <table class="table">
                     <tr>
-                        <td> <a href="train_search.html" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Search Trains</a> </td>
-                        <td> <a href="book_ticket.html" class="btn btn-primary btn-lg active btn-custm" role="button"> Book Tickets</a> </td>
+                        <td> <a href="train_search.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Search Trains</a> </td>
+                        <td> <a href="book_ticket.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Book Tickets</a> </td>
                     </tr>
                     <br/>
                     <tr>
-                        <td> <a href="cancel_ticket.html" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Cancel Tickets</a> </td>
-                        <td> <a href="booked_history.html" class="btn btn-primary btn-lg active btn-custm" role="button"> My Booked History</a> </td>
+                        <td> <a href="cancel_ticket.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Cancel Tickets</a> </td>
+                        <td> <a href="booked_history.php" class="btn btn-primary btn-lg active btn-custm" role="button"> My Booked History</a> </td>
 
                     </tr>
                 </table>
