@@ -14,14 +14,32 @@
         <p> You are currently not sign in <a href="login.php">Login </a>Not yet a member?
             <a href="signup.php">Sign up</a>
         </p>
-        <?php else: ?>
+        <?php else: 
+        $ur = $_SESSION['username'];
+        $ad = "admin";
+        ?>
         <p>
             <h4> You are logged in as <strong><em><span id="red_font"><?php echo $_SESSION['username']; ?></span></em></strong></h4>
         </p>
-        <?php endif ?>
       </div>      
     </div>
-<?php if(isset($_SESSION['username'])): ?>
+<?php if($ur === $ad): ?>
+      <div class="row">
+          <br/>
+          <br/>
+          <div class="col-md-6" ></div>
+          <p>
+              <table class="table">
+                  <tr>
+                      <td> <a href="train_search.html" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Add Train</a> </td>
+                      <td> <a href="book_ticket.html" class="btn btn-primary btn-lg active btn-custm" role="button"> Delete Train</a> </td>
+                  </tr>
+                  <br/>
+              </table>
+           </p>
+        </div>
+
+<?php else: ?>
    <div class="row">
             <br/>
             <br/>
@@ -43,14 +61,6 @@
         </div>
 
 <?php endif ?>
-
-
-
-
-
-
-
-
-
+<?php endif ?>
 
 <?php require_once("patches/footer.php"); ?>
