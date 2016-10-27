@@ -55,13 +55,17 @@
             <p>
                 <table class="table">
                     <tr>
-                        <td> <a href="train_search.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Search Trains</a> </td>
-                        <td> <a href="book_ticket.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Book Tickets</a> </td>
+                        <td> <a href="train_search.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Search Train by NO</a> </td>
+                        <td> <a href="searchsrcdest.php" class="btn btn-primary btn-lg active btn-custm" role="button">Search Train by Src/Dest</a> </td>
                     </tr>
                     <br/>
                     <tr>
-                        <td> <a href="cancel_ticket.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Cancel Tickets</a> </td>
-                        <td> <a href="booked_history.php" class="btn btn-primary btn-lg active btn-custm" role="button"> My Booked History</a> </td>
+                        <td> <a href="book_ticket.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> Book Tickets</a> </td>
+                        <td> <a href="cancel_ticket.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Cancel Tickets</a> </td>
+                    </tr>
+                    <tr>
+                        
+                        <td> <a href="booked_history.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> My Booked History</a> </td>
 
                     </tr>
                 </table>
