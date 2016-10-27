@@ -27,8 +27,6 @@ require_once("resource/Database.php"); //db connection ?>
 <?php    
 $tnm = gettrainname($db);
 $tno = gettrainno($db);
-$stid = getstationid($db);
-$stn = getstationname($db);
 ?>
 
 <div class="row">
