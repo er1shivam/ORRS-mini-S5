@@ -142,7 +142,7 @@ function isValidImage($file){
 }
 
 function getstationid($db){
-    $st_id = "SELECT station_id FROM train_route"; //check if user exist in database
+    $st_id = "SELECT station_id FROM train_route";     
     $statement = $db->prepare($st_id);
     $statement->execute();
     while($row = $statement->fetch()){
@@ -151,7 +151,7 @@ function getstationid($db){
 return $id;
 }
 function getstationname($db){
-    $st_nm = "SELECT station_name FROM train_route"; //check if user exist in database
+    $st_nm = "SELECT station_name FROM train_route"; 
     $statement = $db->prepare($st_nm);
     $statement->execute();
     while($row = $statement->fetch()){
@@ -159,8 +159,19 @@ function getstationname($db){
     }
 return $nm;
 }
+function getstname($db,$stid){
+    $st_nm = "SELECT station_name FROM train_route WHERE station_id = :stid"; 
+    $statement = $db->prepare($st_nm);
+    $statement->execute(array(':stid' => $stid));
+    while($row = $statement->fetch()){
+        $nm = $row['station_name'];
+    }
+return $nm;
+}
+
 
 function gettrainname($db){
+    $nm = [];
     $st_nm = "SELECT train_name FROM trains_info"; //check if user exist in database
     $statement = $db->prepare($st_nm);
     $statement->execute();
@@ -170,6 +181,7 @@ function gettrainname($db){
 return $nm;
 }
 function gettrainno($db){
+    $nm = array();
     $st_nm = "SELECT train_no FROM trains_info"; //check if user exist in database
     $statement = $db->prepare($st_nm);
     $statement->execute();
