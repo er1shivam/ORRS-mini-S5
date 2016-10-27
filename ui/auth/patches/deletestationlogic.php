@@ -14,7 +14,7 @@
                     swal({   
                          title: \"Congrats !\", 
                         type:'success',  
-                        text: \"Train Deleted.\",
+                        text: \"Station Deleted.\",
                         confirmButtonText: \"Thank you!\",    
                         
                         });
