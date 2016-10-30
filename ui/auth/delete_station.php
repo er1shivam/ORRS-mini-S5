@@ -67,6 +67,35 @@ $no = getstationid($db);
     </form>
     </div>
 
+
+<div class="table">
+  <table class="table">
+  <tr>
+    <tr>
+    <!--th>Train id</th-->
+<th>Station name</th> 
+<th>sourcestid</th>&nbsp; &nbsp;
+
+<hr/> 
+<?php
+ $sqlInsert1 =  "SELECT *FROM train_route";
+        $statement1 = $db->prepare($sqlInsert1);
+        $statement1->execute();
+
+
+
+while($row=$statement1->fetch())
+{  
+    ?>
+    <tr class="alt">
+  <td><?php echo $row['station_id']; ?></td>
+    <td><?php echo $row['station_name']; ?></td>
+</tr>
+</div>
+<?php 
+}
+?>
+
 <?php endif ?>
 
 <?php require_once("patches/footer.php"); ?>

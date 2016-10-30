@@ -67,6 +67,48 @@ $no = gettrainno($db);
     </form>
     </div>
 
+<div class="table">
+  <table class="table">
+  <tr>
+    <tr>
+    <!--th>Train id</th-->
+<th>Train no.</th>
+<th>Train name</th> 
+<th>sourcestid</th>&nbsp; &nbsp;
+<th>destinationstid</th>
+<hr/> 
+<?php
+ $sqlInsert1 =  "SELECT *FROM trains_info";
+        $statement1 = $db->prepare($sqlInsert1);
+        $statement1->execute();
+
+
+
+while($row=$statement1->fetch())
+{  
+  $Trainno=$row['train_no'];
+  $trainname=$row['train_name'];
+  $source=$row['s_station_id'];
+  $destination=$row['d_station_id'];
+
+
+ ?>
+
+    <tr class="alt">
+    <!--td><?//php echo $row['trainid '];?></td-->
+    <td><?php echo $Trainno ;?></td>
+    <td><?php echo $trainname; ?></td>
+    <td><?php echo $source ;?></td>&nbsp;&nbsp;
+    <td><?php echo $destination;?></td>&nbsp;
+
+</tr>
+
+</tr>
+</div>
+<?php 
+}
+?>
+
 <?php endif ?>
 
 <?php require_once("patches/footer.php"); ?>
