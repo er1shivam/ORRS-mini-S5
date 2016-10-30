@@ -171,7 +171,7 @@ return $nm;
 
 
 function gettrainname($db){
-    $nm = [];
+    $nm = array();
     $st_nm = "SELECT train_name FROM trains_info"; //check if user exist in database
     $statement = $db->prepare($st_nm);
     $statement->execute();
