@@ -78,8 +78,10 @@ require_once("resource/Database.php"); //db connection ?>
                 $tr_tp = $row['type'];
                 $tr_src = $row['s_station_id'];
                 $tr_dest = $row['d_station_id'];
-                $tr_sl = $row['sl1'];
-                $tr_ac = $row['ac1'];
+                $tr_sl = $row['sl'];
+                $tr3_ac = $row['thirdtier'];
+                $tr2_ac = $row['secondtier'];
+                $tr1_ac = $row['firsttier'];
 
                 $sst_nm = getstname($db,$tr_src);
                 $dst_nm = getstname($db,$tr_dest);     
@@ -96,7 +98,9 @@ require_once("resource/Database.php"); //db connection ?>
                             <th>Source</th>
                             <th>Destination</th>
                             <th>Sleeper</th>
-                            <th>AC</th>
+                            <th>Third tier</th>
+                            <th>Second tier</th>
+                            <th>First Tier</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -108,7 +112,9 @@ require_once("resource/Database.php"); //db connection ?>
                             <td>$sst_nm</td>
                             <td>$dst_nm</td>
                             <td>$tr_sl</td>
-                            <td>$tr_ac</td>
+                            <td>$tr3_ac</td>
+                            <td>$tr2_ac</td>
+                            <td>$tr1_ac</td>
                             </tr>
                         </tbody>
                     </table>
