@@ -95,21 +95,7 @@ $nm = getstationname($db);
         $statement = $db->prepare($sqlInsert);
         $statement->execute(array(':sid' => $_POST['s_station_id'], ':did' => $_POST['d_station_id']));
 
-                while($row = $statement->fetch()){
-                $tr_no = $row['train_no'];
-                $tr_nm = $row['train_name'];
-                $tr_tp = $row['type'];
-                $tr_src = $row['s_station_id'];
-                $tr_dest = $row['d_station_id'];
-                $tr_sl = $row['sl'];
-                $tr3_ac = $row['thirdtier'];
-                $tr2_ac = $row['secondtier'];
-                $tr1_ac = $row['firsttier'];
-
-                $sst_nm = getstname($db,$tr_src);
-                $dst_nm = getstname($db,$tr_dest);     
-                  
-                  echo "<div class=\"row\">
+           echo "<div class=\"row\">
                   <div class=\"col-md-6\">
                     <table class=\"table\">
                         <thead>
@@ -126,9 +112,24 @@ $nm = getstationname($db);
                             <th>First Tier</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                            <th scope=\"row\">1</th>
+                        <tbody>";
+                $inc = 0;
+                while($row = $statement->fetch()){
+                $tr_no = $row['train_no'];
+                $tr_nm = $row['train_name'];
+                $tr_tp = $row['type'];
+                $tr_src = $row['s_station_id'];
+                $tr_dest = $row['d_station_id'];
+                $tr_sl = $row['sl'];
+                $tr3_ac = $row['thirdtier'];
+                $tr2_ac = $row['secondtier'];
+                $tr1_ac = $row['firsttier'];
+
+                $sst_nm = getstname($db,$tr_src);
+                $dst_nm = getstname($db,$tr_dest);     
+                  
+                  echo "<tr>
+                            <th scope=\"row\">". ++$inc. "</th>
                             <td>$tr_no</td>
                             <td>$tr_nm</td>
                             <td>$tr_tp</td>
@@ -138,13 +139,12 @@ $nm = getstationname($db);
                             <td>$tr3_ac</td>
                             <td>$tr2_ac</td>
                             <td>$tr1_ac</td>
-                            </tr>
-                        </tbody>
-                        
-                    </table><a class=\"pull-right\" href=\"book_ticket.php\"><h4><b>BOOK TICKET<b></h4></a>
-                  ";
+                            </tr>";
                 //$result = flashMessage("Registration succesful" ,"pass");
                 }
+                echo "</tbody>  
+                    </table>
+                    </div></div>";
             }catch (PDOException $ex){
                     $result = flashMessage("Error occured : " . $ex->getMessage() );
             }

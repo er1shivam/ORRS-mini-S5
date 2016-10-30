@@ -64,9 +64,9 @@
                         <td> <a href="cancel_ticket.php" class="btn btn-primary btn-lg active btn-custm" role="button"> Cancel Tickets</a> </td>
                     </tr>
                     <tr>
-                        
-                        <td> <a href="booked_history.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> My Booked History</a> </td>
-
+                <td> <a href="booked_history.php" class="btn btn-primary pull-right btn-lg active btn-custm" role="button"> My Booked History</a> </td>
+                <td> <a href="check_pnr.php" class="btn btn-primary btn-lg active btn-custm" role="button"> CHECK PNR</a> </td>
+               
                     </tr>
                 </table>
             </p>
