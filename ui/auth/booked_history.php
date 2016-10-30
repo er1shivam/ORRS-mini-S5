@@ -33,31 +33,18 @@ require_once("resource/Database.php"); //db connection ?>
 </div>
 </div>
         <div class="col-md-9">
-        
         </div>
-        <br/>
         <form action="" method="post">
-            <br/>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="col-xs-6 pull-right">
-                        <label for="ex1">BOOKED TICKET </label>
-                    </div>
+                   
                 </div>
             </div>
-            <br/>
-            <br/>
     </div>
     </form>
     </div>
-    <br/>
-    <br/>
 
-<?php
-    $usn = $_SESSION['username'];
-
-
-    ?>
+<?php $usn = $_SESSION['username']; ?>
 <div class="table">
   <table class="table">
   <tr>
@@ -67,9 +54,6 @@ require_once("resource/Database.php"); //db connection ?>
 <th> Name</th>
 <th>TRAIN NO</th>
 <th> Seats </th>
-
-
-
 <hr/> 
 <?php
  $sqlInsert1 =  "SELECT * FROM ticket WHERE username = :us";
@@ -88,12 +72,6 @@ while($row=$statement1->fetch())
 <?php 
 }
 ?>
-
-
-
-
-
-
 
 <?php endif ?>
 
