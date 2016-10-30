@@ -55,7 +55,7 @@ $no = gettrainno($db);
             <br/>
             <div class="col-md-9">
                 <center>
-                    <input type="submit" name="deleteticket" class="btn btn-info" value="Delete Ticket From Database"> </center>
+                    <input type="submit" name="deleteticket" class="btn btn-info" value="Cancel Ticket"> </center>
             </div>
     </div>
     </form>

@@ -50,7 +50,7 @@ require_once("resource/Database.php"); //db connection ?>
             <br/>
             <div class="col-md-9">
                 <center>
-                    <input type="submit" name="submit" class="btn btn-info" value="Search Train"> </center>
+                    <input type="submit" name="submit" class="btn btn-info" value="Check PNR"> </center>
             </div>
     </div>
     </form>
