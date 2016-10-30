@@ -73,8 +73,8 @@ $no = getstationid($db);
   <tr>
     <tr>
     <!--th>Train id</th-->
-<th>Station name</th> 
-<th>sourcestid</th>&nbsp; &nbsp;
+<th>Station ID</th> 
+<th>Station Name</th>&nbsp; &nbsp;
 
 <hr/> 
 <?php

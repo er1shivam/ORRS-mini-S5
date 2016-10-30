@@ -148,8 +148,8 @@ $nm = getstationname($db);
     <!--th>Train id</th-->
 <th>Train no.</th>
 <th>Train name</th> 
-<th>sourcestid</th>&nbsp; &nbsp;
-<th>destinationstid</th>
+<th>Source Station</th>&nbsp; &nbsp;
+<th>Destination Station</th>
 <hr/> 
 <?php
  $sqlInsert1 =  "SELECT *FROM trains_info";
@@ -172,8 +172,8 @@ while($row=$statement1->fetch())
     <!--td><?//php echo $row['trainid '];?></td-->
     <td><?php echo $Trainno ;?></td>
     <td><?php echo $trainname; ?></td>
-    <td><?php echo $source ;?></td>&nbsp;&nbsp;
-    <td><?php echo $destination;?></td>&nbsp;
+    <td><?php echo getstname($db,$source) ;?></td>&nbsp;&nbsp;
+    <td><?php echo getstname($db,$destination)?></td>&nbsp;
 
 </tr>
 
@@ -182,8 +182,6 @@ while($row=$statement1->fetch())
 <?php 
 }
 ?>
-
-
 
 
 

@@ -35,7 +35,7 @@ $no = gettrainno($db);
             <div class="col-md-2"></div>
             <div class="col-md-6 pull-center">
                 <div class="jumbotron">
-                    <center><h2>Enter Train Details To Delete</h2></center>  
+                    <center><h2>Select Train To Delete</h2></center>  
                 </div>
             </div>
             </div>
@@ -98,8 +98,8 @@ while($row=$statement1->fetch())
     <!--td><?//php echo $row['trainid '];?></td-->
     <td><?php echo $Trainno ;?></td>
     <td><?php echo $trainname; ?></td>
-    <td><?php echo $source ;?></td>&nbsp;&nbsp;
-    <td><?php echo $destination;?></td>&nbsp;
+    <td><?php echo getstname($db,$source); ?></td>&nbsp;&nbsp;
+    <td><?php echo getstname($db,$destination); ?></td>&nbsp;
 
 </tr>
 
