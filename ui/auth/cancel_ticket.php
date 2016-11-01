@@ -65,22 +65,42 @@ $no = gettrainno($db);
 <?php
     $form_errors = array();
     if(isset($_POST['deleteticket'])){
-
+        $ticketid = $_POST['ttid'];
+        $trno = '';
+        $trtp = '';
+        $nos = '';
+        $nosp = '';
        if(empty($form_errors)) {
-    try{
-        $sqlInsert =  "DELETE FROM ticket WHERE ticketid = :tno";
+        try{
+            $query1 =  "SELECT * FROM ticket WHERE ticketid= :tid";
+            $statement1 = $db->prepare($query1);
+            $statement1->execute(array(':tid' => $ticketid));
 
-        $statement = $db->prepare($sqlInsert);
-        $statement->execute(array(':tno' => $_POST['ttid']));
+            if($row=$statement1->fetch()){
+            $trno = $row['train_no'];
+            $trtp = $row['type'];
+            $nos = $row['seat'];
+            }
+        
+            $sqldelete =  "DELETE FROM ticket WHERE ticketid = :tid";
+            $statement = $db->prepare($sqldelete);
+            $statement->execute(array(':tid' => $ticketid));
 
+            if($statement -> rowCount() == 1){
+            
+            $query2 =  "SELECT * FROM trains_info WHERE train_no= :tno";
+            $statement5 = $db->prepare($query2);
+            $statement5->execute(array(':tno' => $trno));
 
+            if($row=$statement5->fetch()){
+            $nosp = $row[$trtp];
+            }
+            $nosp += $nos;
+            $updatequery =  "UPDATE trains_info set {$trtp}='$nosp' WHERE train_no= :tno";
+            $statement2 = $db->prepare($updatequery);
+            $statement2->execute(array(':tno' => $trno));
 
-        $q =  "UPDATE trains_info set {$tp}='$ts' WHERE train_no= '$Trainno'";
-        $statement2 = $db->prepare($q);
-        $statement2->execute();
-        $usnm = $_SESSION['username'];
-
-                if($statement -> rowCount() == 1){
+                if($statement2 -> rowCount() == 1){
                     $result = "<script type=\"text/javascript\"> 
                     swal({   
                          title: \"Congrats !\", 
@@ -92,6 +112,7 @@ $no = gettrainno($db);
                         </script>";
                 //$result = flashMessage("Registration succesful" ,"pass");
                 }
+            }
             }catch (PDOException $ex){
                     $result = flashMessage("Error occured : " . $ex->getMessage() );
             }
