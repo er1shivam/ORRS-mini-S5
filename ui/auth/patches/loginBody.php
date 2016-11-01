@@ -4,8 +4,22 @@ require_once("resource/Database.php"); //db connection ?>
 <?php require_once("resource/utilities.php"); ?>
 
 <?php
-    
-    if(isset($_POST['login'])){
+    if(isset($_SESSION['username'])){
+       echo $welcome = "<script type=\"text/javascript\"> swal({   
+                        title: \"Signed in!\",
+                        text: \"You are already signed in. \",   
+                        timer: 2000,   
+                        showConfirmButton: false 
+                        });
+                        setTimeout(function(){
+                            window.location.href = 'index.php'; 
+                            }, 2000); 
+
+                        </script>";
+    }
+    else
+    {
+        if(isset($_POST['login'])){
          $form_errors = array(); // create a array to store the errors
         //validate
         $required_fields = array('username', 'password');
@@ -61,5 +75,6 @@ require_once("resource/Database.php"); //db connection ?>
                 $result = flashMessage("There were ".count($form_errors)." errors in the form <br />");
             }
         }
+    }
     }
 ?>

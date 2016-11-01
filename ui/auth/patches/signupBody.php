@@ -1,6 +1,20 @@
 <?php require_once("resource/Database.php"); //db connection ?>
 <?php require_once("resource/utilities.php"); ?>
 <?php
+    if(isset($_SESSION['username'])){
+       echo $welcome = "<script type=\"text/javascript\"> swal({   
+                        title: \"You are already Signed in!\",
+                        text: \"To Signup Logout first\",  
+                        timer: 3000,   
+                        showConfirmButton: false 
+                        });
+                        setTimeout(function(){
+                            window.location.href = 'index.php'; 
+                            }, 2000); 
+
+                        </script>";
+    }
+    else{
     $form_errors = array();
     if(isset($_POST['submit'])){
 
@@ -58,5 +72,6 @@
         }
     }
 }
+    }
 
 ?>
