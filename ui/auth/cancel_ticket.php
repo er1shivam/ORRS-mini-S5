@@ -100,18 +100,18 @@ $no = gettrainno($db);
             $statement2 = $db->prepare($updatequery);
             $statement2->execute(array(':tno' => $trno));
 
-                if($statement2 -> rowCount() == 1){
-                    $result = "<script type=\"text/javascript\"> 
+            
+             echo $result = "<script type=\"text/javascript\"> 
                     swal({   
                          title: \"Congrats !\", 
                         type:'success',  
-                        text: \"Train Deleted.\",
+                        text: \"Ticket cancelled.\",
                         confirmButtonText: \"Thank you!\",    
                         
                         });
                         </script>";
                 //$result = flashMessage("Registration succesful" ,"pass");
-                }
+            
             }
             }catch (PDOException $ex){
                     $result = flashMessage("Error occured : " . $ex->getMessage() );
