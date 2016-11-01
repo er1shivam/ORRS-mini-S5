@@ -65,7 +65,7 @@ while($row=$statement1->fetch())
     <tr class="alt">
   <td><?php echo $row['ticketid']; ?></td>
     <td><?php echo $row['Name']; ?></td>
-    <td><?php echo $row['trainno']; ?></td>
+    <td><?php echo $row['train_no']; ?></td>
     <td><?php echo $row['seat']; ?></td>
 </tr>
 </div>
