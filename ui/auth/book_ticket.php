@@ -116,7 +116,7 @@ require_once("resource/Database.php"); //db db ?>
 
 <?php
 if(isset($_POST['submit'])){
-
+$usnm = $_SESSION['username'];
 $Trainno=($_POST["trainno"]);
 $tp=($_POST["tp"]);
 $Name=($_POST["Name"]);
@@ -125,43 +125,42 @@ $age=($_POST["age"]);
 $seat=($_POST["seat"]);
 $source=($_POST["source"]);
 $destination=($_POST["destination"]);
+$ts = '';
 
 
-    $sqlInsert1 =  "SELECT {$tp} FROM trainseat";
-        $statement1 = $db->prepare($sqlInsert1);
-        $statement1->execute();
-
+        $query1 =  "SELECT {$tp} FROM trains_info WHERE train_no= :tno";
+        $statement1 = $db->prepare($query1);
+        $statement1->execute(array(':tno' => $Trainno));
 
         if($row=$statement1->fetch()){
-        $ts=$row[$tp];
+            $ts=$row[$tp];
         }
-
-        $seat=($_POST["seat"]);
         if ($ts < $seat){
-            echo "seats not available";
+            echo "<script type=\"text/javascript\">
+            swal(\"Oops...\", \"Seats not available!\", \"error\")
+            </script>";
             exit();
         }
         else{
         $ts= $ts-$seat;
- //echo $seat;
+        //echo $seat;
 
-        $q =  "UPDATE trains_info set {$tp}='$ts' WHERE train_no= '$Trainno'";
-        $statement2 = $db->prepare($q);
-        $statement2->execute();
-        $usnm = $_SESSION['username'];
+        $updatequery1 =  "UPDATE trains_info set {$tp}='$ts' WHERE train_no= :tno";
+        $statement2 = $db->prepare($updatequery1);
+        $statement2->execute(array(':tno' => $Trainno));
         
-$sqlInsert =  "INSERT INTO ticket (trainno, username, Name, age, seat, source,destination) ";
-        $sqlInsert .= "VALUES (:tno,:usnm,:name,:age, :seat, :source, :destination)";
-        $statement = $db->prepare($sqlInsert);
-        $statement->execute(array(':tno' => $Trainno,':usnm' => $usnm, ':name' => $Name,':age' => $age, ':seat' => $seat, ':source' => $source, ':destination' => $destination));
         
-
- if($statement -> rowCount() == 1){
+        $sqlInsert1 =  "INSERT INTO ticket (train_no, username, Name, age, seat, source,destination,type) ";
+        $sqlInsert1 .= "VALUES (:tno,:usnm,:name,:age, :seat, :source, :destination, :type)";
+        $statement = $db->prepare($sqlInsert1);
+        $statement->execute(array(':tno' => $Trainno,':usnm' => $usnm, ':name' => $Name,':age' => $age, ':seat' => $seat, ':source' => $source, ':destination' => $destination, ':type' => $tp));
+        
+     if($statement -> rowCount() == 1){
         $que = "SELECT ticketid FROM ticket WHERE NAME = :nm";
         $statement3 = $db->prepare($que);
         $statement3->execute(array(':nm' => $Name));
 
-      $_SESSION['tktid'] ='';
+        $_SESSION['tktid'] ='';
         $id = '';
         if($row = $statement3->fetch()){
          $id = $row['ticketid'];
