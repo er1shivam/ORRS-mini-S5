@@ -30,7 +30,7 @@ require_once("resource/Database.php"); //db db ?>
         $tmpsrc = $row['source'];
         $tmpdest = $row['destination'];
         $tmpnos = $row['seat'];
-        $tmpno = $row['trainno'];
+        $tmpno = $row['train_no'];
 
 
 
