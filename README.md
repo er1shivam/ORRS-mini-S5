@@ -9,9 +9,23 @@
    And the project is running successfully online ,and anyone can visit,signup, and use every functionality</br>
    of a basic User.<br/><br/>
 To visit the site Click Here [ORRS](http://orrs.er1shivam.site88.net/ui/index.html)
+
 ## Details
 
 This project is designed in HTML,CSS,JS AND PHP using MYSQL as its backend database.
+
+# Screenshot
+<p align="center">
+  <img  width="1100px" src="image/index.png"
+  alt="Screenshot"/>
+</p>
+<br/>
+<br/>
+<p align="center">
+  <img width="1100px" src="image/main.png"
+  alt="Screenshot"/>
+</p>
+
 
 In this there are basically two user groups
 
@@ -32,7 +46,18 @@ In this there are basically two user groups
        -Cancel Ticket</br>
        -Check his Booked History</br>
        -Check PNR</br></i>
-)
+
+
+## NOTE:
+
+      However copyright is applied but This project is open-source , so anyone interested can download or fork this project.<br/>
+      <br/>
+      If you find any bug ,you can report me here <b>er1shivam@gmail.com.</b>
+      <br/>
+      Thanks
+
+
+
 
 
 
