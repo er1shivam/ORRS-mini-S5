@@ -48,13 +48,13 @@ In this there are basically two user groups
        -Check PNR</br></i>
 
 
-## NOTE:
+## NOTE
 
-      However copyright is applied but This project is open-source , so anyone interested can download or fork this project.<br/>
-      <br/>
-      If you find any bug ,you can report me here <b>er1shivam@gmail.com.</b>
-      <br/>
-      Thanks
+However copyright is applied but This project is open-source , so anyone interested can download or fork this project.<br/>
+<br/>
+If you find any bug ,you can report me here <b>er1shivam@gmail.com.</b>
+<br/>
+Thanks
 
 
 
