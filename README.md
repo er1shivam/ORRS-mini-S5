@@ -9,7 +9,7 @@
    And the project is running successfully online ,and anyone can visit,signup, and use every functionality</br>
    of a basic User.
 
-   <b>The site details are below...</b></br>
+     The site details are below...
 
      Click Here [ORRS](https://orrs.er1shivam.site88.net/ui/index.html)
 
