@@ -9,10 +9,6 @@
    And the project is running successfully online ,and anyone can visit,signup, and use every functionality</br>
    of a basic User.
 
-     The site details are below...
-
-     Click Here [ORRS](https://orrs.er1shivam.site88.net/ui/index.html)
-
 ## Details
 
 This project is designed in HTML,CSS,JS AND PHP using MYSQL as its backend database.
@@ -37,7 +33,7 @@ In this there are basically two user groups
        -Check his Booked History</br>
        -Check PNR</br></i>
 
-
+Click Here [ORRS](https://orrs.er1shivam.site88.net/ui/index.html)
 
 
 
