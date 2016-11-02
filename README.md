@@ -32,8 +32,7 @@ In this there are basically two user groups
        -Cancel Ticket</br>
        -Check his Booked History</br>
        -Check PNR</br></i>
-
-Click Here [ORRS](https://orrs.er1shivam.site88.net/ui/index.html)
+)
 
 
 
